@@ -3,15 +3,19 @@ const routes = express.Router();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { urlencoded } = require('express');
-const user = require('./models.js');
+const user = require('./models/models.js');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash')
 
-
+// using Bodyparser for getting form data
 routes.use(bodyParser.urlencoded({extended:true}));
+
+// using cookie-parser and session 
+routes.use(cookieParser('secret'));
+
 routes.use(passport.initialize());
 routes.use(passport.session());
 
@@ -25,7 +29,6 @@ routes.use(function (req, res, next) {
     next();
 });
 
-routes.use(cookieParser('secret'));
 routes.use(session({
     secret:'secret',
     maxAge:360000,
@@ -40,8 +43,8 @@ const checkAuthenticated = function (req, res, next) {
         res.redirect('/login');
     }
 }
-
- mongoose.connect('mongodb+srv://jagrti:JHA8875091601@cluster0-ul1ff.mongodb.net/login_details?retryWrites=true&w=majority',
+//paste your connection url of mongoDB atlas here
+ mongoose.connect('<here>',
  {
      useNewUrlParser:true,useUnifiedTopology:true,
  }).then(()=>console.log("Database connected"));
