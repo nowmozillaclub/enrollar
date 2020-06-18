@@ -2,54 +2,52 @@ const express = require('express')
 const routes = express.Router();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { urlencoded } = require('express');
-const user = require('./models/models.js');
+const { urlencoded, Router } = require('express');
+const user = require('./models.js');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash')
+const jwt = require('jsonwebtoken');
 
-// using Bodyparser for getting form data
+
 routes.use(bodyParser.urlencoded({extended:true}));
-
-// using cookie-parser and session 
-routes.use(cookieParser('secret'));
-
 routes.use(passport.initialize());
 routes.use(passport.session());
 
 routes.use(flash());
 // MIDDLEWARES
 // Global variable
-routes.use(function (req, res, next) {
-    res.locals.success_message = req.flash('success_message');
-    res.locals.error_message = req.flash('error_message');
-    res.locals.error = req.flash('error');
-    next();
-});
+// routes.use(function (req, res, next) {
+//     res.locals.success_message = req.flash('success_message');
+//     res.locals.error_message = req.flash('error_message');
+//     res.locals.error = req.flash('error');
+//     next();
+// });
 
+routes.use(cookieParser('secret'));
 routes.use(session({
     secret:'secret',
     maxAge:360000,
     resave:true,
     saveUninitialized:true
 }));
-const checkAuthenticated = function (req, res, next) {
-    if (req.isAuthenticated()) {
-        res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, post-check=0, pre-check=0');
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-}
-//paste your connection url of mongoDB atlas here
- mongoose.connect('<here>',
+// const checkAuthenticated = function (req, res, next) {
+//     if (req.isAuthenticated()) {
+//         res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, post-check=0, pre-check=0');
+//         return next();
+//     } else {
+//         res.redirect('/login');
+//     }
+// }
+
+ mongoose.connect('mongodb+srv://jagrti:JHA8875091601@cluster0-ul1ff.mongodb.net/login_details?retryWrites=true&w=majority',
  {
      useNewUrlParser:true,useUnifiedTopology:true,
  }).then(()=>console.log("Database connected"));
 
-routes.get('/',(req,res) =>{
+routes.get('/',checkLogin,(req,res) =>{
     res.render('index')
 })
 routes.post('/register',(req,res)=>{
@@ -83,9 +81,7 @@ routes.post('/register',(req,res)=>{
                         password,
                     }).save((err, data) => {
                         if (err) throw err;
-                        req.flash('success_message', "Registered Successfully.. Login To Continue..");
-                         res.redirect('/login');
-                     
+                       
                          });
                    })
                    
@@ -96,7 +92,19 @@ routes.post('/register',(req,res)=>{
         
     }
 });
+//local storage
+if (typeof localStorage === "undefined" || localStorage ==="null"){
+    const LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+}
+//
+routes.get('/login',function(req,res,next){
+res.send("login successfully");
+});
 
+routes.get('/logout',function(req,res,next){
+    res.send("logout successfully");
+});
 //Authication startregy
 var localStratergy =  require('passport-local');
 passport.use({usernameField:'email'},(email,password,done)=>{
@@ -129,15 +137,30 @@ passport.deserializeUser(function(id,cb){
         cb(err,user);
     })
 })
-routes.get('/success',checkAuthenticated,(req,res) =>{
-    res.render('success');
-})
+// routes.get('/success',checkAuthenticated,(req,res) =>{
+//     res.render('success');
+// })
+//middleware
+function checkLogin(req,res,next){
+    var myToken = localStorage.getItem('myToken');
+    try {
+        jwt.verify(myToken,'loginToken')
+    }
+    catch{
+        res.send("you need to login to access our services");
+    }
+    next();
+}
 
 routes.get('/login',(req,res) =>{
-    res.render('login')
+
+    var token = jwt.sign({ email: 'email' }, 'loginToken');
+    localStorage.setItem('myToken',token); 
+    res.render('login');
 })
 routes.get('/logout',(req,res) => {
     req.logout(); 
+    localStorage.removeItem('myToken')
     res.redirect('/login');
 })
 module.exports=routes;
