@@ -1,20 +1,33 @@
 const express = require('express');
+const mongoose = require('mongoose')
+const { URI } = require('./keys/keys')
+const bodyParser = require('body-parser')
+
+
 const app = express();
-const routes = require('./routes/routes.js')
-const path = require('path');
-const { Router } = require('express');
 
 
+// all middlewares
+app.use( bodyParser.json() )
+app.use(require('./routes/auth'))
 
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname,'views'))
-app.get('/',routes);
-app.post('/register',routes);
-app.get('/login',routes);
-app.post('/login',routes);
-app.get('/success',routes);
-app.get('/logout',routes);
- 
+// connecting to the db here
+options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify:false
+}
+mongoose.connect(URI, options)
 
+// checking connections by adding an event listener
+mongoose.connection.on('connected',()=>{
+    console.log("Connection went through!")
+}).on('error',(err)=>{
+    console.log("An error occured!",err)
+})
+
+// listening on port
 const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=>console.log("the server is running on the port,",PORT));
+app.listen(PORT ,()=>{
+    console.log("Listening on Port",PORT)
+});
