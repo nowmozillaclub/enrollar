@@ -5,6 +5,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SingnIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
                 </NavLink>
               </div>
 
-              {/* <Route exact path="/" component={SignUpForm}></Route> */}
+              <Route exact path="/" component={SignUp}></Route>
               <Route path="/sign-in" component={SingnIn}></Route>
             </div>
           </div>

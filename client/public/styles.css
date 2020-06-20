@@ -6,12 +6,12 @@
 
 .App__Aside {
     width: 50%;
-    background-color: #66DAC7;
+    background-color: #827397;
 }
 
 .App__Form {
     width: 50%;
-    background-color: #2E4158;
+    background-color: #4d4c7d;
     padding: 25px 40px;
     overflow: auto;
 }
@@ -23,7 +23,7 @@
 }
 
 .PageSwitcher__Item {
-    background-color: #4C5D72;
+    background-color: #58587a;
     color: #9DA6B1;
     padding: 10px 25px;
     cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .PageSwitcher__Item--Active {
-    background-color: #5ED0C0;
+    background-color: #827397;
     color: white;
 }
 
@@ -54,13 +54,13 @@
 }
 
 .FormTitle {
-    color: #707C8B;
+    color: #d4c3eb;
     font-weight: 300;
     margin-bottom: 50px;
 }
 
 .FormTitle__Link {
-    color: #707C8B;
+    color: #d4c3eb;
     text-decoration: none;
     display: inline-block;
     font-size: 1.7em;
@@ -74,7 +74,7 @@
 
 .FormTitle__Link--Active {
     color: white;
-    border-bottom: 1px solid #199087;
+    border-bottom: 1px solid #bdaed1;
 }
 
 .FormField {
@@ -94,7 +94,7 @@
     border: none;
     color: white;
     outline: none;
-    border-bottom: 1px solid #445366;
+    border-bottom: 1px solid #bdaed1;
     font-size: 1em;
     font-weight: 300;
     padding-bottom: 10px;
@@ -102,11 +102,11 @@
 }
 
 .FormField__Input::placeholder {
-    color: #616E7F;
+    color: #d4c3eb;
 }
 
 .FormField__Button {
-    background-color: #52C4B9;
+    background-color: #827397;
     color: white;
     border: none;
     outline: none;
@@ -117,15 +117,15 @@
 }
 
 .FormField__Link {
-    color: #66707D;
+    color: #d4c3eb;
     text-decoration: none;
     display: inline-block;
-    border-bottom: 1.5px solid #225E62;
+    border-bottom: 1.5px solid #bdaed1;
     padding-bottom: 5px;
 }
 
 .FormField__CheckboxLabel {
-    color: #646F7D;
+    color: #d4c3eb;
     font-size: .9em;
 }
 
@@ -136,7 +136,7 @@
 
 .FormField__TermsLink {
     color: white;
-    border-bottom: 1px solid #199087;
+    border-bottom: 1px solid #bdaed1;
     text-decoration: none;
     display: inline-block;
     padding-bottom: 2px;
