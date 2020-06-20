@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nowmozillaclub/Course-Place/issues"
   },
-  "homepage": "https://github.com/nowmozillaclub/Course-Place#readme"
+  "homepage": "https://github.com/nowmozillaclub/Course-Place#readme",
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
 }
