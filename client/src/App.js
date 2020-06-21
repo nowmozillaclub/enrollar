@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SingnIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { signup } from "./assets/signup.svg";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           {/* <Route exact path="/" component={HomePage} /> */}
           <div className="App">
             <div className="App__Aside">
-              <img src="..assets/signup.svg" width="400" height="400"></img>
+              <img src={signup} width="400" height="400"></img>
             </div>
             <div className="App__Form">
               <div className="PageSwitcher">

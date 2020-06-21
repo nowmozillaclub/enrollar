@@ -1,11 +1,10 @@
 body {
     margin: 0px;
-    /* padding: 0;
-    border: 0; */
+
 }
 
 .App {
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     color: white;
     font-family: 'Source Code Pro', monospace;
@@ -20,7 +19,7 @@ body {
     width: 50%;
     background-color: #4d4c7d;
     padding: 25px 40px;
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 .PageSwitcher {
