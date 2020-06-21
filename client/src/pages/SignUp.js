@@ -8,6 +8,7 @@ class SignUpForm extends Component {
     this.state = {
       email: "",
       password: "",
+      confirmpassword: "",
       name: "",
       hasAgreed: false,
     };
@@ -66,6 +67,20 @@ class SignUpForm extends Component {
             />
           </div>
           <div className="FormField">
+            <label className="FormField__Label" htmlFor="password">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="FormField__Input"
+              placeholder="Confirm your password"
+              name="confirmpassword"
+              value={this.state.confirmpassword}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="FormField">
             <label className="FormField__Label" htmlFor="email">
               E-Mail Address
             </label>
@@ -86,6 +101,7 @@ class SignUpForm extends Component {
                 className="FormField__Checkbox"
                 type="checkbox"
                 name="hasAgreed"
+                required="true"
                 value={this.state.hasAgreed}
                 onChange={this.handleChange}
               />{" "}

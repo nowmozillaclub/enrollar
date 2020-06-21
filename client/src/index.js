@@ -10,12 +10,12 @@ import Footer from "./pages/footer";
 const routing = (
   <Router>
     <div>
-      <Header/>
+      <Header />
       <hr />
       <Switch>
         <Route exact path="/" component={App} />
       </Switch>
-      <Footer/>
+      <Footer />
     </div>
   </Router>
 );
