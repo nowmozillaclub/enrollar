@@ -14,7 +14,9 @@ function App() {
         <Switch>
           {/* <Route exact path="/" component={HomePage} /> */}
           <div className="App">
-            <div className="App__Aside"></div>
+            <div className="App__Aside">
+              <img src="./assets/signup.svg" width="400" height="400"></img>
+            </div>
             <div className="App__Form">
               <div className="PageSwitcher">
                 <NavLink
