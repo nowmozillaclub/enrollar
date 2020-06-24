@@ -13,6 +13,11 @@ body {
 .App__Aside {
     width: 50%;
     background-color: #827397;
+    text-align: center;
+}
+
+.signupimg {
+    padding: 50px;
 }
 
 .App__Form {

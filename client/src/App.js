@@ -16,7 +16,12 @@ function App() {
           {/* <Route exact path="/" component={HomePage} /> */}
           <div className="App">
             <div className="App__Aside">
-              <img src={signup} width="400" height="400"></img>
+              <img
+                className="signupimg"
+                src={signup}
+                width="500"
+                height="500"
+              ></img>
             </div>
             <div className="App__Form">
               <div className="PageSwitcher">
