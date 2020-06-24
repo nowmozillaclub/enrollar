@@ -101,7 +101,7 @@ class SignUpForm extends Component {
                 className="FormField__Checkbox"
                 type="checkbox"
                 name="hasAgreed"
-                required="true"
+                required={true}
                 value={this.state.hasAgreed}
                 onChange={this.handleChange}
               />{" "}
