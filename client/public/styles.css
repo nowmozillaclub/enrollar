@@ -7,7 +7,7 @@ body {
     height: 100vh;
     display: flex;
     color: white;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Raleway', sans-serif;
 }
 
 .App__Aside {
