@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SingnIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import { signup } from "./assets/signup.svg";
+import signup from "./assets/signup.svg";
 
 function App() {
   return (
