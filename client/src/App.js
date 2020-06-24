@@ -8,35 +8,71 @@ import SingnIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import signup from "./assets/signup.svg";
 import login from "./assets/login.svg";
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Routes = ()=>{
   const location = useLocation();
+  const change = {
+    hidden:{
+      opacity:0
+    },
+    visible:{
+      opacity:1
+    }
+  }
+  const homeVariant = {
+    hidden:{
+      x:'-100vw'
+    },
+    visible:{
+      x:0,
+      transition: { type:'spring', stiffness: 80 }
+    },
+    exit:{
+      x:'-100vw',
+      transition:{ ease:'easeInOut' }
+    }
+  }
   return (
           <div className="App">
-            <div className="App__Aside">
+            <motion.div className="App__Aside"
+              variants={ change }
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
               { 
                 location && location.pathname === '/sign-in' ? (
-                  <img
-                  className="signupimg"
-                  src={login}
-                  width="500"
-                  height="500"
-                  alt="cover"
-                  ></img>
+                  <motion.img
+                    key={1}
+                    variants={ change }
+                    className="signupimg"
+                    src={login}
+                    width="500"
+                    height="500"
+                    alt="cover"
+                    />
                 ) : (
-                  <img
-                  className="signupimg"
-                  src={signup}
-                  width="500"
-                  height="500"
-                  alt="cover"
-                  ></img>
+                  <motion.img
+                    key = {2}
+                    variants={ change }
+                    className="signupimg"
+                    src={signup}
+                    width="500"
+                    height="500"
+                    alt="cover"
+                    />
                 )
               }
               
-            </div>
+            </motion.div>
             
-            <div className="App__Form">
+            <div className="App__Form"
+                variants={ homeVariant }
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+            >
               <div className="PageSwitcher">
                 <NavLink
                   to="/sign-in"
@@ -61,7 +97,7 @@ const Routes = ()=>{
                   className="FormTitle__Link"
                 >
                   Sign In
-                </NavLink>
+                </NavLink>{" "}or{" "}
                 
                 <NavLink
                   to="/sign-up"
@@ -84,7 +120,9 @@ const Routes = ()=>{
 function App() {
   return(
     <BrowserRouter>
-      <Routes />
+      <AnimatePresence exitBeforeEnter>
+        <Routes />
+      </AnimatePresence>
     </BrowserRouter>
   )
 }

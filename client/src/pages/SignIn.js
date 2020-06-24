@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
 
 class SignInForm extends Component {
   constructor() {
@@ -32,8 +33,26 @@ class SignInForm extends Component {
   }
 
   render() {
+    const nextVariants = {
+      hidden: {
+        x: '-100vw'
+      },
+      visible: {
+        x: 0,
+        transition: { type: 'spring', stiffness: 80 }
+      },
+      exit: {
+        x: '100vw',
+        transition: { ease: 'easeInOut' }
+      }
+    }
     return (
-      <div className="FormCenter">
+      <motion.div className="FormCenter"
+        variants={nextVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         <form
           onSubmit={this.handleSubmit}
           className="FormFields"
@@ -71,13 +90,18 @@ class SignInForm extends Component {
           </div>
 
           <div className="FormField">
-            <button className="FormField__Button mr-20">Sign In</button>{" "}
-            <Link to="/" className="FormField__Link">
+            <motion.button className="FormField__Button mr-20"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Sign In
+            </motion.button>{" "}
+            <Link to="/sign-up" className="FormField__Link">
               Create an account
             </Link>
           </div>
         </form>
-      </div>
+      </motion.div>
     );
   }
 }
