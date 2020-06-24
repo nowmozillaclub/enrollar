@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import signup from "../assets/signup.svg";
+
 
 class SignUpForm extends Component {
   constructor() {
@@ -48,6 +50,7 @@ class SignUpForm extends Component {
               className="FormField__Input"
               placeholder="Enter your full name"
               name="name"
+              required
               value={this.state.name}
               onChange={this.handleChange}
             />
@@ -59,6 +62,7 @@ class SignUpForm extends Component {
             <input
               type="email"
               id="email"
+              required
               className="FormField__Input"
               placeholder="Enter your email"
               name="email"
@@ -74,6 +78,7 @@ class SignUpForm extends Component {
               type="password"
               id="password"
               className="FormField__Input"
+              required
               placeholder="Enter your password"
               name="password"
               value={this.state.password}
@@ -81,15 +86,16 @@ class SignUpForm extends Component {
             />
           </div>
           <div className="FormField">
-            <label className="FormField__Label" htmlFor="password">
+            <label className="FormField__Label" htmlFor="password2">
               Confirm Password
             </label>
             <input
               type="password"
-              id="password"
+              id="password2"
               className="FormField__Input"
               placeholder="Confirm your password"
               name="confirmpassword"
+              required
               value={this.state.confirmpassword}
               onChange={this.handleChange}
             />
@@ -106,7 +112,7 @@ class SignUpForm extends Component {
                 onChange={this.handleChange}
               />{" "}
               I agree all statements in{" "}
-              <a href="" className="FormField__TermsLink">
+              <a href="#!" className="FormField__TermsLink">
                 terms of service
               </a>
             </label>

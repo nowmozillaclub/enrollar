@@ -118,6 +118,7 @@ body {
 
 .FormField__Button {
     background-color: #827397;
+    cursor: pointer;
     color: white;
     border: none;
     outline: none;

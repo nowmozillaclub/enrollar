@@ -37,7 +37,6 @@ class SignInForm extends Component {
         <form
           onSubmit={this.handleSubmit}
           className="FormFields"
-          onSubmit={this.handleSubmit}
         >
           <div className="FormField">
             <label className="FormField__Label" htmlFor="email">
@@ -46,6 +45,7 @@ class SignInForm extends Component {
             <input
               type="email"
               id="email"
+              required
               className="FormField__Input"
               placeholder="Enter your email"
               name="email"
@@ -60,6 +60,7 @@ class SignInForm extends Component {
             </label>
             <input
               type="password"
+              required
               id="password"
               className="FormField__Input"
               placeholder="Enter your password"
