@@ -1,0 +1,143 @@
+body {
+margin: 0;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+
+hr {
+box-sizing: content-box;
+height: 0;
+overflow: visible;
+}
+fieldset {
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+
+* {
+box-sizing: border-box;
+}
+
+.s01 {
+min-height: 100vh;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-pack: center;
+justify-content: center;
+-ms-flex-align: center;
+align-items: center;
+font-family: 'Poppins', sans-serif;
+background: url("https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60");
+background-size: cover;
+background-position: center center;
+padding: 15px;
+}
+
+.s01 form {
+width: 100%;
+max-width: 1290px;
+}
+
+.s01 form legend {
+font-size: 72px;
+line-height: 1;
+color:white;
+margin-left:47px;
+margin-bottom: 50px;
+}
+
+.s01 form .inner-form {
+padding: 50px 47px;
+display: -ms-flexbox;
+display: flex;
+width: 100%;
+
+}
+
+.s01 form .inner-form .input-field {
+margin-right: 30px;
+height: 68px;
+}
+
+.s01 form .inner-form .input-field input {
+height: 100%;
+background: #fff;
+border-radius: 25px;
+border: 0;
+display: block;
+width: 100%;
+padding: 10px 32px;
+font-size: 20px;
+}
+.s01 form .inner-form .input-field.first-wrap {
+-ms-flex-positive: 1;
+flex-grow: 1;
+}
+
+.s01 form .inner-form .input-field.third-wrap {
+width: 180px;
+margin-right: 0;
+}
+
+.s01 form .inner-form .input-field.third-wrap .btn-search {
+height: 100%;
+width: 100%;
+background: #4272d7;
+white-space: nowrap;
+border-radius: 25px;
+font-size: 20px;
+color: #fff;
+border: 0;
+cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+.s01 form legend {
+font-size: 50px;
+text-align: center;
+margin-bottom: 50px;
+}
+.s01 form .inner-form {
+padding: 30px 35px;
+}
+.s01 form .inner-form .input-field {
+height: 50px;
+}
+}
+
+@media screen and (max-width: 767px) {
+.s01 form legend {
+font-size: 40px;
+margin-bottom: 40px;
+}
+.s01 form .inner-form {
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+padding: 20px;
+}
+.s01 form .inner-form .input-field {
+margin-right: 0;
+}
+.s01 form .inner-form .input-field input {
+padding: 5px 15px;
+font-size: 16px;
+}
+.s01 form .inner-form .input-field.first-wrap {
+width: 100%;
+margin-bottom: 20px;
+}
+.s01 form .inner-form .input-field.second-wrap {
+width: calc(50% - 10px);
+min-width: auto;
+}
+.s01 form .inner-form .input-field.third-wrap {
+width: calc(50% - 10px);
+}
+.s01 form .inner-form .input-field.third-wrap .btn-search {
+font-size: 16px;
+}
+}

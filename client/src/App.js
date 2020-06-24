@@ -8,14 +8,17 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import HomePage  from './pages/HomePage';
+
+import SearchPage from './pages/SearchPage';
+
 
 function App() {
   return (
-    <Fragment>
+   <Fragment>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path="/" component={SearchPage} />
+	
         </Switch>
       </BrowserRouter>
     </Fragment>
