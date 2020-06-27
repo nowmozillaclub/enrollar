@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 
+
 class SignInForm extends Component {
+  componentDidMount(){
+    let element = document.querySelector("[type='checkbox']");
+    if(element){
+      element.checked = false
+    }
+  }
   constructor() {
     super();
 
@@ -47,7 +54,8 @@ class SignInForm extends Component {
       }
     }
     return (
-      <motion.div className="FormCenter"
+      <div>
+        <motion.div className="FormCenter"
         variants={nextVariants}
         initial="hidden"
         animate="visible"
@@ -102,6 +110,7 @@ class SignInForm extends Component {
           </div>
         </form>
       </motion.div>
+      </div>
     );
   }
 }

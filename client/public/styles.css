@@ -156,3 +156,17 @@ body {
     padding-bottom: 2px;
     margin-left: 5px;
 }
+.switcher{
+    color: grey;
+}
+.clicked{
+    font-weight: bolder;
+    color:white;
+}
+#svg_7{
+    transform-origin: center;
+}
+
+/* home page styling */
+
+/* font-family: 'Lexend Deca', sans-serif; */

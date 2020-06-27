@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import signup from "../assets/signup.svg";
 import { motion } from 'framer-motion'
 
 
 
 class SignUpForm extends Component {
+  componentDidMount(){
+    let element = document.querySelector("[type='checkbox']");
+    if(element){
+      element.checked = true
+    }
+  }
+  
   constructor() {
     super();
 
@@ -53,7 +59,8 @@ class SignUpForm extends Component {
       }
     }
     return (
-      <motion.div className="FormCenter"
+      <div>
+        <motion.div className="FormCenter"
         variants={ nextVariants }
         initial="hidden"
         animate="visible"
@@ -151,6 +158,7 @@ class SignUpForm extends Component {
           </div>
         </form>
       </motion.div>
+      </div>
     );
   }
 }
