@@ -10,7 +10,7 @@ function App() {
   return (
       <AnimatePresence exitBeforeEnter>
         <Switch location={ location } key={ location.key }>
-          <Route path="/" component={ Homepage } />
+          <Route exact path="/" component={ Homepage } />
           <Route path="/sign-up" component={ Auth } />
           <Route path="/sign-in" component={ Auth } />
         </Switch>

@@ -1,6 +1,9 @@
 body {
     margin: 0px;
 }
+html{
+    scroll-behavior: smooth !important;
+}
 
 .App {
     height: 100vh;
@@ -168,4 +171,52 @@ body {
 }
 /* home page styling */
 
-/* font-family: 'Lexend Deca', sans-serif; */
+#home{
+    font-family: 'Lexend Deca', sans-serif;
+    background: #a8dadc;
+}
+.introSection{
+    color: #f1faee;
+}
+.introSection h2{
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    margin-top: 150px;
+    font-family: 'Lexend Deca', sans-serif;
+}
+.section{
+    background-color: #fcbf49;
+}
+#curve{
+    width:100%;
+    height: 100px;
+    border-radius: 0 0 100% 100%;
+    background-color: #fcbf49;
+    margin-top:-20px;
+}
+#drop{
+    font-size: 2rem;
+}
+.why{
+    margin:50px;
+}
+.featTab{
+    margin:10px auto !important;
+}
+.featTab img{
+    border-radius: 24px;
+}
+
+@media screen and (max-width:992px){
+    .introSection h2{
+        margin-top:20px;
+    }
+}
+
+#curvey{
+    width:100%;
+    height: 100px;
+    border-radius: 100% 100% 0 0;
+    background-color: #fcbf49;
+    margin-top:-20px;
+}
