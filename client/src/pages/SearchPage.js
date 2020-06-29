@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from "./footer";
-import Header from "./header";
 import './css/styles.css';
 const SearchPage = () => {
 return(
@@ -10,7 +8,6 @@ return(
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-
 <body>
     <div class="s01">
         <form>
@@ -27,7 +24,6 @@ return(
             </div>
         </form>
     </div>
-    <Footer/>
 </body>
 
 </html>
