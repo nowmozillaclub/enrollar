@@ -75,7 +75,7 @@ return(
                 <ul>
                     {results.map(item => (
                         <div class="container">
-                            <div class="row p-3 mb-2 bg-light text-dark rounded-lg">
+                            <div class="row p-3 mb-2 bg-light text-dark rounded">
                                 <div class="thumbnail rounded m-2">
                                     <img src={item.img}></img>
                                 </div>

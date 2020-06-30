@@ -58,6 +58,22 @@ width: 100%;
 
 }
 
+
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.thumbnail{        
+    width: 260px; 
+    height: 145px;
+    overflow: auto;
+}
+
+.thumbnail img{
+    width: 100%;
+	height:100%;
+}
 .s01 form .inner-form .input-field {
 margin-right: 30px;
 height: 68px;
