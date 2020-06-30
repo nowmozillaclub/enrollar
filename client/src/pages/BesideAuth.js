@@ -1,35 +1,14 @@
 import React from "react";
 import { motion } from 'framer-motion'
-import SingnIn from "../pages/SignIn";
+import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
-import {  Route, Switch, useLocation, NavLink } from "react-router-dom";
+import {  useLocation, NavLink } from "react-router-dom";
 import Test from './test';
 import TestAgain from './test2';
+import Navbar from './layout/Navbar';
 
 const Routes = (props) => {
     const location = useLocation();
-    // const change = {
-    //   hidden: {
-    //     opacity: 0
-    //   },
-    //   visible: {
-    //     opacity: 1
-    //   }
-    // }
-    // const image = {
-    //   hidden: {
-    //     opacity: 0,
-    //     y:'-100vw'
-    //   },
-    //   visible: {
-    //     opacity: 1,
-    //     y:'0'
-    //   },
-    //   exit:{
-    //     y:'100vw',
-    //     transition: { ease: 'easeInOut' }
-    //   }
-    // }
     const homeVariant = {
       hidden: {
         x: '-100vw'
@@ -43,11 +22,13 @@ const Routes = (props) => {
         transition: { ease: 'easeInOut' }
       }
     }
+    const elem = props.match.path ==="/sign-up" ? <SignUp/> : <SignIn/>
+
     return (
-      <div className="App">
-        <motion.div className="App__Aside"
-          
-        >
+      <>
+      <Navbar props={props}/>
+      <div className="row App">
+        <motion.div className="col s12 l6 App__Aside">
           {
             location && location.pathname === '/sign-in' ? (
               <Test />
@@ -55,10 +36,9 @@ const Routes = (props) => {
                 <TestAgain />
               )
           }
-  
         </motion.div>
   
-        <div className="App__Form"
+        <div className="col s12 l6 App__Form"
           variants={homeVariant}
           initial="hidden"
           animate="visible"
@@ -109,13 +89,13 @@ const Routes = (props) => {
               Sign Up
                   </NavLink>
           </div>
-          <Switch>
-            <Route path="/sign-up" component={SignUp}></Route>
-            <Route path="/sign-in" component={SingnIn}></Route>
-          </Switch>
+          {
+            elem
+          }
         </div>
       </div>
+      </>
     );
   }
 
-export default Routes
+export default Routes;

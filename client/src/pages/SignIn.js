@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
-
+import { Link } from "react-router-dom";
 
 class SignInForm extends Component {
   componentDidMount(){
@@ -55,62 +54,62 @@ class SignInForm extends Component {
     }
     return (
       <div>
-        <motion.div className="FormCenter"
-        variants={nextVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+      <motion.div className="FormCenter"
+      variants={nextVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <form
+        onSubmit={this.handleSubmit}
+        className="FormFields"
       >
-        <form
-          onSubmit={this.handleSubmit}
-          className="FormFields"
-        >
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="email">
-              E-Mail Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              required
-              className="FormField__Input"
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div className="FormField">
+          <label className="FormField__Label" htmlFor="email">
+            E-Mail Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            required
+            className="FormField__Input"
+            placeholder="Enter your email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+        </div>
 
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              required
-              id="password"
-              className="FormField__Input"
-              placeholder="Enter your password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div className="FormField">
+          <label className="FormField__Label" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            required
+            id="password"
+            className="FormField__Input"
+            placeholder="Enter your password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </div>
 
-          <div className="FormField">
-            <motion.button className="FormField__Button mr-20"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Sign In
-            </motion.button>{" "}
-            <Link to="/sign-up" className="FormField__Link">
-              Create an account
-            </Link>
-          </div>
-        </form>
-      </motion.div>
-      </div>
+        <div className="FormField">
+          <motion.button className="FormField__Button mr-20"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Sign In
+          </motion.button>{" "}
+          <Link to="/sign-up" className="FormField__Link">
+            Create an account
+          </Link>
+        </div>
+      </form>
+    </motion.div>
+    </div>
     );
   }
 }

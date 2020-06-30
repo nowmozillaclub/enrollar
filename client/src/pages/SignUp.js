@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion'
-
-
+import { motion } from 'framer-motion';
 
 class SignUpForm extends Component {
   componentDidMount(){
@@ -11,7 +9,6 @@ class SignUpForm extends Component {
       element.checked = true
     }
   }
-  
   constructor() {
     super();
 
@@ -20,7 +17,6 @@ class SignUpForm extends Component {
       password: "",
       confirmpassword: "",
       name: "",
-      hasAgreed: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -57,7 +53,7 @@ class SignUpForm extends Component {
         x:'100vw',
         transition:{ ease:'easeInOut' }
       }
-    }
+    };
     return (
       <div>
         <motion.div className="FormCenter"
@@ -129,23 +125,6 @@ class SignUpForm extends Component {
           </div>
 
           <div className="FormField">
-            <label className="FormField__CheckboxLabel">
-              <input
-                className="FormField__Checkbox"
-                type="checkbox"
-                name="hasAgreed"
-                required={true}
-                value={this.state.hasAgreed}
-                onChange={this.handleChange}
-              />{" "}
-              I agree all statements in{" "}
-              <a href="#!" className="FormField__TermsLink">
-                terms of service
-              </a>
-            </label>
-          </div>
-
-          <div className="FormField">
             <motion.button className="FormField__Button mr-20"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -158,7 +137,7 @@ class SignUpForm extends Component {
           </div>
         </form>
       </motion.div>
-      </div>
+      </div>  
     );
   }
 }

@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Homecover from './SVGs/homeCover'
 import animatedCover from '../assets/home/smallCover.png'
 import Features from './home/features';
 import Footer from './home/footer';
+import { motion, useViewportScroll } from 'framer-motion';
+import Navbar from './layout/Navbar'
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const { scrollYProgress } = useViewportScroll()
   return (
+    <>
+      <Navbar props={props}/>
     <div id="home">
       <div className="section row">
         <div className="container introSection col s12">
@@ -22,7 +27,9 @@ const HomePage = () => {
             </p>
             <div className="col s12 center">
               <a href="#whyEnrollar" className="btn-floating btn-large center pulse cyan">
-                <i className="material-icons" id="drop">arrow_drop_down</i>
+                <motion.i className="material-icons" id="drop"
+                  style={{fontSize:{scrollYProgress}}}
+                >arrow_drop_down</motion.i>
               </a>
             </div>
           </div>
@@ -35,7 +42,7 @@ const HomePage = () => {
             <div className="card-image waves-effect waves-block waves-light"
               style={{"borderRadius":"24px 24px 0 0"}}
             >
-              <img className="activator" src={ animatedCover } />
+              <img className="activator" src={ animatedCover } alt="cover"/>
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">
@@ -51,8 +58,10 @@ const HomePage = () => {
               <p>
                 <a href="https://github.com/nowmozillaclub/Course-Place"
                   style={{color:"yellow"}}
-                >A NOW Mozilla Club project...</a> 
+                >A NOW Mozilla Club project...</a>
+              </p>
                 <hr />
+              <p>
                 Ever been overwhelmed by the amount of sites that are there on the web for
                 learning your desired course?
                 <br/><br />
@@ -71,6 +80,7 @@ const HomePage = () => {
       <Features />
       <Footer />
     </div>
+    </>
   );
 };
 
