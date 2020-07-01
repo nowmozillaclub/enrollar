@@ -1,54 +1,60 @@
 const puppeteer = require('puppeteer');
-const { waitForDebugger } = require('inspector');
+const getUrl = ()=>{
+    input = "data science".replace(" ","%20")
+    temp = `https://www.coursera.org/search?query=${input}`
+    return temp
+}
 
-// document.querySelector('div[class="card-info vertical-box"]>h2').innerText
-
-
-const butt = '.feed > div';
 (async () => {
-  const browser = await puppeteer.launch({headless:false});
-  
- 
-  const page = await browser.newPage();
+    console.log("start")
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
 
-  await page .goto('https://www.coursera.org/');
+    await page.setDefaultNavigationTimeout(0); 
 
- // clicking the search button
+    //blocking site's css, images and fonts
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+        if(req.resourceType() == 'stylesheet' || req.resourceType() == 'font' || req.resourceType() == 'image'){
+            req.abort();
+        }
+        else {
+            req.continue();
+        }
+    });
 
-await page.click('#mobile_search_icon_button')
+    await page.goto(getUrl(), {waitUntil: 'networkidle2', timeout:300000})
+        .then(()=>{
+        console.log("redirected successfully!")
+        }).catch(err=>{
+            console.log("Error occured! Error:",err)
+        });
+    //queries to get the data of the first course shown,
+    // works on any course you enter 
+    await page.waitFor('.horizontal-box')
+    var data = await page.evaluate(()=> {
+        location.reload(true)
+        let rating =document.querySelectorAll('div[class="screenreader-only"]  ');
+        let title= document.querySelectorAll("h2[class='color-primary-text card-title headline-1-text']")
+        let university = document.querySelectorAll('div[class="vertical-box"] > div> div> div >span');
+        let level= document.querySelectorAll('div[class="product-difficulty"] >span');
+        let image = document.querySelectorAll("div[class='vertical-box']>div>div>img");
+        let link = document.querySelectorAll("li[class='ais-InfiniteHits-item']>div>a");
+        let courses = []
+        for (let i = 0; i < rating.length; ++i){
+            let obj = {
+                title: title[i].innerText,
+                rating: rating[i].innerText,
+                university: university[i].innerText,
+                level: level[i].innerText,
+                image: image[i]['src'],
+                link: link[i]['href']
+            }
+            courses.push(obj)
+        }
 
-await page.evaluate(() => {
-    const name = document.querySelector('.react-autosuggest__input');
-    name.value = 'web development';
-  });
-  // input values in the search field
-  await page.$eval('.react-autosuggest__input', el => el.value = 'java');
-// clicking the search button after inputing values in the textfield
-await page.click('.nostyle search-button')
-
-
-//queries to get the data of the first course shown,
-// works on any course you enter 
-
-let data = await page.evaluate(()=> {
-
-  let title= document.querySelector('div[class="vertical-box"] > div> div>h2').innerText;
-  let rating =document.querySelector('div[class="screenreader-only"]  ').innerText;
-  let university = document.querySelector('div[class="vertical-box"] > div> div> div >span').innerText;
-  let level= document.querySelector('div[class="vertical-box"] > div> div >span').innerText;
-
-  return{
-    title,
-    rating,
-    university,
-    level
-  }
-});
-
-
-console.log(data);
-
-  
-
-
-});
+        return courses
+    });
+    console.log(data);
+    await browser.close();
+})();
