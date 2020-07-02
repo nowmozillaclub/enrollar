@@ -1,0 +1,306 @@
+body {
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root, .App, .App__Aside, .App__Form{
+    height:100% !important;
+}
+
+.App {
+    height: 100%;
+    /* display: flex; */
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+.App > .App__Aside{
+    height:100%
+}
+
+.App__Aside {
+    height:100%;
+    width: 50%;
+    background-color: #827397;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.signupimg {
+    padding: 50px;
+}
+
+.App__Form {
+    padding:40px !important;
+    height:100%;
+    width: 50%;
+    background-color: #4d4c7d;
+    padding: 25px 40px;
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+.PageSwitcher {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10%;
+}
+
+.PageSwitcher__Item {
+    background-color: #58587a;
+    color: #9DA6B1;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: .9em;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.PageSwitcher__Item--Active {
+    background-color: #827397;
+    color: white;
+}
+
+.PageSwitcher__Item:first-child {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.PageSwitcher__Item:last-child {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.FormCenter {
+    margin-bottom: 100px;
+}
+
+.FormTitle {
+    color: #d4c3eb;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.FormTitle__Link {
+    color: #d4c3eb;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.8em;
+    margin: 0 10px;
+    padding-bottom: 5px;
+    font-weight:800;
+}
+
+.FormTitle__Link:first-child {
+    margin-left: 0;
+}
+
+.FormTitle__Link--Active {
+    color: white;
+    border-bottom: 1px solid #bdaed1;
+}
+
+.FormField {
+    margin-bottom: 40px;
+}
+
+.FormField__Label {
+    display: block;
+    text-transform: uppercase;
+    font-size: .9em;
+    color: white;
+}
+
+.FormField__Input {
+    width: 85%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid #bdaed1;
+    font-size: 1em;
+    font-weight: 300;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.FormField__Input::placeholder {
+    color: #d4c3eb;
+}
+
+.FormField__Button {
+    background-color: #827397;
+    cursor: pointer;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 15px 70px;
+    font-size: .8em;
+    font-weight: 500;
+}
+
+.FormField__Link {
+    color: #d4c3eb;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 1.5px solid #bdaed1;
+    padding-bottom: 5px;
+    margin-left:20px;
+}
+
+.FormField__CheckboxLabel {
+    color: #d4c3eb;
+    font-size: .9em;
+}
+
+.FormField__Checkbox {
+    position: relative;
+    top: 1.5px;
+}
+
+.FormField__TermsLink {
+    color: white;
+    border-bottom: 1px solid #bdaed1;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 2px;
+    margin-left: 5px;
+}
+.switcher{
+    color: grey;
+}
+.clicked{
+    font-weight: bolder;
+    color:white;
+}
+#svg_7{
+    transform-origin: center;
+}
+/* home page styling */
+.enrollar{
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    font-family: 'Lexend Deca', sans-serif;
+}
+#home{
+    font-family: 'Lexend Deca', sans-serif;
+    background: #a8dadc;
+}
+.introSection{
+    color: #f1faee;
+}
+.introSection h2{
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    margin-top: 150px;
+    font-family: 'Lexend Deca', sans-serif;
+}
+.section{
+    background-color: #fcbf49;
+}
+#curve{
+    width:100%;
+    height: 100px;
+    border-radius: 0 0 100% 100%;
+    background-color: #fcbf49;
+    margin-top:-20px;
+}
+#drop{
+    font-size: 2rem;
+}
+.why{
+    margin:50px;
+}
+.featTab{
+    margin:10px auto !important;
+}
+.featTab img{
+    border-radius: 24px;
+}
+
+@media screen and (max-width:992px){
+    .introSection h2{
+        margin-top:20px;
+    }
+}
+
+#curvey{
+    width:100%;
+    height: 100px;
+    border-radius: 100% 100% 0 0;
+    background-color: #fcbf49;
+    margin-top:-20px;
+}
+
+/* navbar */
+nav{
+    height: 90px !important;
+    font-family: 'Lexend Deca', sans-serif;
+
+}
+.nav-wrapper{
+    padding:10px 25px;
+    background:transparent;
+}
+
+/* search page */
+hr.sep {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+    
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.s01 {
+    min-height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: 'Lexend Deca', sans-serif;
+    background: url("https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60");
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+}
+
+
+.thumbnail{        
+    width: 260px; 
+    height: 145px;
+    overflow: auto;
+}
+
+.thumbnail img{
+    width: 100%;
+    height:100%;
+}
+
+.seachTag{
+    font-size: 32px !important;
+}
+.App{
+    margin-bottom: 0;
+}
+.searchbar .input-field{
+    margin:20px;
+}

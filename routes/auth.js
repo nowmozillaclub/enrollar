@@ -8,9 +8,9 @@ const { JWT_SECRET } = require('../keys/keys')
 
 // signup route
 router.post('/signup',(req,res)=>{
-    var { name,email,username,password,cnfPassword}=req.body;
+    var { name,email,password,cnfPassword}=req.body;
     console.log(req.body)
-    if(!email || !password || !username || !cnfPassword){
+    if(!email || !password || !name || !cnfPassword){
        err = "Kindly provide all necessary credentials for logging in!";
        return res.status(422)
                     .send({error:err})
@@ -32,7 +32,6 @@ router.post('/signup',(req,res)=>{
             const newUser = new User({
                 name,
                 email,
-                username,
                 password:hashedpwd,
             })  
             // saving user to the db
