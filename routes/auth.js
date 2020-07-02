@@ -4,10 +4,6 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../keys/keys')
-// const passport = require('passport');
-// const session = require('express-session');
-// const cookieParser = require('cookie-parser');
-// const flash = require('connect-flash')
 
 
 // signup route

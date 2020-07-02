@@ -10,6 +10,7 @@ const app = express();
 // all middlewares
 app.use( bodyParser.json() )
 app.use(require('./routes/auth'))
+app.use(require('./routes/courses'))
 
 // connecting to the db here
 options = {

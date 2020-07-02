@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer');
-const getUrl = ()=>{
-    input = "data science".replace(" ","%20")
+const getUrl = (inp)=>{
+    input = inp.replace(" ","%20")
     temp = `https://www.coursera.org/search?query=${input}`
     return temp
 }
 
-(async () => {
+const getCourses = async (inp) => {
     console.log("start")
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
     const page = await browser.newPage();
 
     await page.setDefaultNavigationTimeout(0); 
@@ -23,7 +23,7 @@ const getUrl = ()=>{
         }
     });
 
-    await page.goto(getUrl(), {waitUntil: 'networkidle2', timeout:300000})
+    await page.goto(getUrl(inp), {waitUntil: 'networkidle2', timeout:300000})
         .then(()=>{
         console.log("redirected successfully!")
         }).catch(err=>{
@@ -55,6 +55,9 @@ const getUrl = ()=>{
 
         return courses
     });
-    console.log(data);
     await browser.close();
-})();
+    return data;
+};
+
+module.exports = getCourses;
+

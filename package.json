@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.8",
     "mongoose": "^5.9.18",
+    "puppeteer": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

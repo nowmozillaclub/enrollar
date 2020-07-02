@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
 
-const getUrl = ()=>{
-    input = "data science".replace(" ","%20")
+const getUrl = (inp)=>{
+    input = inp.replace(" ","%20")
     temp = `https://www.edx.org/search?tab=course&q=${input}`
     return temp
 }
-async function run() {
-    const browser = await puppeteer.launch();
+const run = async(inp)=> {
+    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 1200 });
 
@@ -22,7 +22,7 @@ async function run() {
             req.continue();
         }
     });
-    await page.goto(getUrl(), {waitUntil: 'networkidle2', timeout:300000})
+    await page.goto(getUrl(inp), {waitUntil: 'networkidle2', timeout:300000})
         .then(()=>{
         console.log("redirected successfully!")
         }).catch(err=>{
@@ -46,12 +46,9 @@ async function run() {
         }
         return courses;
       });
-      
-      
-      console.log(data);
-      
+    await browser.close();
+    return data;
+};
 
-   
-}
+module.exports = run;
 
-run();
