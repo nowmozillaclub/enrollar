@@ -50,11 +50,14 @@ const SearchPage = (props) => {
         window.$(document).ready(function() {
             window.$('input#input_text, textarea#textarea2').characterCounter();
           });
-    },[])
+    },[]);
+    if(!localStorage.getItem('token')){
+        props.history.push('/')
+    }
 return(
     <div>
         {/* <hr classNameName="sep"/> */}
-        <Navbar />
+        <Navbar props={props}/>
         <div className="s01">
             <div className='row'>
                 <div className="col s12">

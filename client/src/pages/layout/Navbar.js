@@ -17,24 +17,34 @@ const Navbar= (props) => {
                         <i className="material-icons">menu</i>
                     </Link>
                     <ul className="right hide-on-med-and-down">
-                        <li>
-                            <Link to="/sign-in">
-                                <i className="material-icons left">person_pin</i>
-                                SIGN IN
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/sign-up">
-                                <i className="material-icons right">person_add</i>
-                                SIGN UP
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/">
-                                <i className="material-icons right">directions_run</i>
-                                LOG OUT
-                            </Link>
-                        </li>
+                        {
+                            localStorage.getItem('token') ? (
+                                <li>
+                                    <Link onClick={()=>{
+                                        localStorage.clear()
+                                        props.props.history.push('/')
+                                    }}>
+                                        <i className="material-icons right">directions_run</i>
+                                        LOG OUT
+                                    </Link>
+                                </li>
+                            ) : (
+                                <>
+                                    <li>
+                                        <Link to="/sign-in">
+                                            <i className="material-icons left">person_pin</i>
+                                            SIGN IN
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/sign-up">
+                                            <i className="material-icons right">person_add</i>
+                                            SIGN UP
+                                        </Link>
+                                    </li>
+                                </>
+                            )
+                        }  
                     </ul>
                 </div>
             </nav>
@@ -48,11 +58,21 @@ const Navbar= (props) => {
                         <Link to="/"><span style={{fontSize:"2rem"}} className="purple-text enrollar">enrollar</span></Link>
                     </div>
                 </li>
-                <li><Link to="/sign-in"><i className="material-icons">person_pin</i>Sign In</Link></li>
-                <li><div className="divider"></div></li>
-                <li><Link to="/sign-up"><i className="material-icons">person_add</i>Sign Up</Link></li>
-                <li><div className="divider"></div></li>
-                <li><Link to="/"><i className="material-icons">directions_run</i>Log Out</Link></li>
+                {
+                    localStorage.getItem('token') ? (
+                        <li><Link onClick={()=>{
+                            localStorage.clear()
+                            console.log(props)
+                            props.props.history.push('/')
+                        }}><i className="material-icons">directions_run</i>Log Out</Link></li>
+                    ) : (
+                        <>
+                            <li><Link to="/sign-in"><i className="material-icons">person_pin</i>Sign In</Link></li>
+                            <li><div className="divider"></div></li>
+                            <li><Link to="/sign-up"><i className="material-icons">person_add</i>Sign Up</Link></li>
+                        </>
+                    )
+                }
             </ul>
         </>
     )

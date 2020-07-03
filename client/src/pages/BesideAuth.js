@@ -22,9 +22,13 @@ const Routes = (props) => {
         transition: { ease: 'easeInOut' }
       }
     }
+    if(localStorage.getItem('token')){
+      props.history.push('/home')
+    }
     const elem = props.match.path ==="/sign-up" ? <SignUp props={props}/> : <SignIn props={props}/>
 
     return (
+
       <>
       <Navbar props={props}/>
       <div className="row App">

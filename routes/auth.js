@@ -85,7 +85,7 @@ router.post('/login',(req,res)=>{
                 // passwords match 
                 // generating a token and validating the user
                 const token = jwt.sign({_id:result._id},JWT_SECRET)
-                var { name, email, _id, username } = result
+                var { name, email, _id } = result
                 // sending details to frontend to be saved in the localstorage
                 res.send({
                     message:"Login successful! Wohoo",
@@ -94,7 +94,6 @@ router.post('/login',(req,res)=>{
                         name,
                         email,
                         _id,
-                        username
                     }
                 })
             }else{
