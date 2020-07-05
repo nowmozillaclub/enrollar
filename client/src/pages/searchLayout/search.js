@@ -1,5 +1,14 @@
 import React, { useEffect } from 'react';
-import Navbar from '../layout/Navbar'
+import Navbar from '../layout/Navbar';
+import searchlogo from '../../assets/home/web_search_logo.svg';
+import "./search.css";
+import { SearchOutlined } from '@ant-design/icons';
+import { Button, Tooltip, Input, Pagination, Tag } from 'antd';
+
+const {Search} = Input;
+
+var val=1;
+var course= "";
 
 const results = [
     {
@@ -44,6 +53,58 @@ const results = [
     img:"https://img-a.udemycdn.com/course/480x270/1035472_23ce_5.jpg",
 
     }];
+    // onSearch = (str) => {
+    //     val=1;
+    //     course=str;
+    //     //make an api call here to store the array of objects here in result
+    // }
+
+
+const showResult= (
+    <div className="resultList">
+        <p className="homeMainContentSubText" style={{color: "black", fontSize: "18px" }}>Your result for: {course}</p>
+        <br/>
+        {results.map(item => (
+            <div className="container" style={{cursor:'pointer'}} >
+                <div className="row">
+                    <div class="col m12 l5">
+                        <div className="thumbnail">
+                            <img src={item.img} class="responsive-img" style={{height: "100%"}}></img>
+                        </div>
+                        <div className='author flow-text'>
+                            <p>By: {item.author}</p>
+                        </div>
+                    </div>
+                    <div class="col m12 l7">
+                    <div className="col-md">
+                        <div className='title'>
+                            <h5><strong>{item.title}</strong></h5>
+
+                        </div>
+                        <div className="text-secondary">
+                            <p>{item.description}</p>
+
+                        </div>
+                        <div className='price flow-text'>
+                            <p><strong>₹{item.price}</strong></p>
+
+                        </div>
+                    </div>
+                    </div>
+                    
+
+                </div>
+            <hr/>
+            </div>
+        ))}
+    </div>
+);
+
+const resultTable = (
+    <div>
+    {(val==1)? showResult: <div/>}
+    </div>
+);
 
 const SearchPage = (props) => {
     useEffect(()=>{
@@ -55,64 +116,69 @@ const SearchPage = (props) => {
         props.history.push('/')
     }
 return(
-    <div>
+    <div style={{backgroundColor: "#ede7f6"}}>
         {/* <hr classNameName="sep"/> */}
         <Navbar props={props}/>
-        <div className="s01">
-            <div className='row'>
-                <div className="col s12">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text searchbar">
-                            <span className="card-title left flow-text seachTag">Find your perfect course...</span>
-                            <div className="input-field">
-                                <input id="search" type="text" className="validate" />
-                                <label htmlFor="search">Search any course...</label>
-                            </div>
-                        </div>
-                        <div className="card-action col s12">
-                            <a className="waves-effect waves-light btn">Search</a>
-                        </div>
+        <div >
+            <div class="row" style={{backgroundColor: "#ffb74d", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px", borderBottomWidth:"15px"}}>
+                <div class="col s12 m6 push-m6">
+                    <div className="homeMainContentContainer">  
+                        <img className="homeImg" src={searchlogo}/>
                     </div>
                 </div>
-            
+                <div class="col s12 m6 pull-m6">
+                    <div className="homeMainContentContainer">
+                        <span className="homeMainContentSubText">Find your perfect course...</span>
+                        <br/>
+                        <Search
+                          placeholder="input search text"
+                          enterButton="Search"
+                          size="large"
+                          onSearch={value => console.log(value)}
+                        />
+                    </div>
+                </div>
                 
-                <div className="results col s10 offset-s1">
-                    <div className="container">
-                        <h4>Results for Web Dev:</h4>
-                    </div>
-                    <ul>
-                        {results.map(item => (
-                            <div className="container" style={{cursor:'pointer'}} >
-                                <div className="row p-3 mb-2 bg-light text-dark rounded">
-                                    <div className="thumbnail rounded m-2">
-                                        <img src={item.img} className="fluid-img"></img>
-                                    </div>
-                                    <div className="col-md">
-                                        <div className='title'>
-                                            <h5><strong>{item.title}</strong></h5>
-
-                                        </div>
-                                        <div className="text-secondary">
-                                            <p>{item.description}</p>
-
-                                        </div>
-                                        <div className='price flow-text'>
-                                            <p><strong>₹{item.price}</strong></p>
-
-                                        </div>
-                                        <div className='author flow-text'>
-                                            <p>{item.author}</p>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        ))}
-                    </ul>
-                </div>
             </div>
         </div>
+        <div class="row">
+            {resultTable}   
+        </div>
+        <footer className="page-footer">
+              <div className="container">
+                <div className="row">
+                  <div className="col l6 s12">
+                    <h5 className="white-text">Follow us for more...</h5>
+                    <p className="grey-text text-lighten-4">
+                      Check out the <span>
+                        <a href="https://github.com/nowmozillaclub/Course-Place/graphs/contributors"
+                          style={{color:"yellow"}}
+                        >
+                          contributors for the code here!
+                        </a>
+                        </span>
+                    </p>
+                  </div>
+                  <div className="col l4 offset-l2 s12">
+                    <h5 className="white-text">Artworks by...</h5>
+                    <ul>
+                      <li><a style={{color:"yellow"}} href="https://freepik.com">
+                        Freepik</a></li>
+                      <li><a style={{color:"yellow"}} href="https://dribbble.com">
+                        Dribbble</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="footer-copyright">
+                <div className="container">
+                © 2020 Copyright, enrollar
+                <a className="grey-text text-lighten-4 right" href="https://github.com/nowmozillaclub">
+                  Our Github
+                </a>
+                </div>
+              </div>
+            </footer>
     </div>
 );
 };
