@@ -66,8 +66,16 @@ const showResult= (
         <br/>
         {results.map(item => (
             <div className="container" style={{cursor:'pointer'}} >
-                <div className="row p-3 mb-2 bg-light text-dark rounded">
-                    <div class="col s7 push-s5">
+                <div className="row">
+                    <div class="col m12 l5">
+                        <div className="thumbnail">
+                            <img src={item.img} class="responsive-img" style={{height: "100%"}}></img>
+                        </div>
+                        <div className='author flow-text'>
+                            <p>By: {item.author}</p>
+                        </div>
+                    </div>
+                    <div class="col m12 l7">
                     <div className="col-md">
                         <div className='title'>
                             <h5><strong>{item.title}</strong></h5>
@@ -83,14 +91,7 @@ const showResult= (
                         </div>
                     </div>
                     </div>
-                    <div class="col s5 pull-s7">
-                        <div className="thumbnail">
-                            <img src={item.img} class="responsive-img" style={{height: "100%"}}></img>
-                        </div>
-                        <div className='author flow-text'>
-                            <p>By: {item.author}</p>
-                        </div>
-                    </div>
+                    
 
                 </div>
             <hr/>
@@ -120,7 +121,12 @@ return(
         <Navbar props={props}/>
         <div >
             <div class="row" style={{backgroundColor: "#ffb74d", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px", borderBottomWidth:"15px"}}>
-                <div class="col s6">
+                <div class="col s12 m6 push-m6">
+                    <div className="homeMainContentContainer">  
+                        <img className="homeImg" src={searchlogo}/>
+                    </div>
+                </div>
+                <div class="col s12 m6 pull-m6">
                     <div className="homeMainContentContainer">
                         <span className="homeMainContentSubText">Find your perfect course...</span>
                         <br/>
@@ -132,11 +138,7 @@ return(
                         />
                     </div>
                 </div>
-                <div class="col s6">
-                    <div className="homeMainContentContainer">  
-                        <img className="homeImg" src={searchlogo}/>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="row">

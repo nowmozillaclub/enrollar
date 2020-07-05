@@ -55,3 +55,8 @@
     transform: translate(0, 0);
   }
 }
+@media only screen and (max-width:601px){
+  .homeMainContentContainer{
+    min-height: 0;
+  }
+}
