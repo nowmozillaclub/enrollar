@@ -1,4 +1,4 @@
-# Course-Place
+# enrollar
 You're perfect learning platform!
 
 > Want a site which grabs all the best courses from all different sources to one place and curates them in order of customer satisfaction and reviews? Look no further!
