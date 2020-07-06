@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
+import M from 'materialize-css';
+
 
 class SignInForm extends Component {
   componentDidMount(){
@@ -33,6 +35,7 @@ class SignInForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    M.toast({html: 'Working, give us a minute', classes: 'rounded'});
     fetch('/login',{
       method: 'POST',
       headers:{
@@ -43,9 +46,14 @@ class SignInForm extends Component {
         password: this.state.password
       })
     }).then(res=>res.json()).then(result=>{
+      if(result.error){
+        M.toast({html: result.error, classes: 'rounded'});
+        return
+      }
       localStorage.setItem("token", JSON.stringify(result.token));
       localStorage.setItem("user", JSON.stringify(result.user));
-      console.log(result.message)
+      M.toast({html: result.message, classes: 'rounded'});
+      this.props.props.history.push('/home');
       // console.log(this.props.props)
     }).catch(err=>{
       console.log(err.error)

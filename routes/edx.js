@@ -40,7 +40,8 @@ const run = async(inp)=> {
                 title: title[i].replace("\n"," "),
                 body: description[i],
                 image: img[i],
-                link: link[i]
+                link: link[i],
+                by: 'edX'
             }
             courses.push(obj)
         }

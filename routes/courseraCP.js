@@ -44,11 +44,10 @@ const getCourses = async (inp) => {
         for (let i = 0; i < rating.length; ++i){
             let obj = {
                 title: title[i].innerText,
-                rating: rating[i].innerText,
-                university: university[i].innerText,
-                level: level[i].innerText,
+                body: `A ${level[i].innerText} level course by ${university[i].innerText}. Ratings: ${rating[i].innerText}`,
                 image: image[i]['src'],
-                link: link[i]['href']
+                link: link[i]['href'],
+                by: 'Coursera'
             }
             courses.push(obj)
         }

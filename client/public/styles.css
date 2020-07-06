@@ -20,6 +20,7 @@ html, body, #root, .App, .App__Aside, .App__Form,.loading{
 .App {
     height: 100%;
     /* display: flex; */
+    margin-bottom: 0 !important;
     color: white;
     font-family: 'Raleway', sans-serif;
 }
@@ -307,7 +308,7 @@ fieldset {
 }
 
 .loading{
-    background-color: #6824f8;
+    background-color: #6b27ff;
     padding: 30px 0;
     text-align: center;
     max-height:100%;
@@ -315,9 +316,4 @@ fieldset {
   }
   .loading img{
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
   }

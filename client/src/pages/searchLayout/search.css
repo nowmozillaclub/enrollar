@@ -1,4 +1,6 @@
-
+a{
+  color: black;
+}
 .homeMainContentContainer {
   min-height: 580px;
   padding: 36px;

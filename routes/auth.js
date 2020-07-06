@@ -34,6 +34,7 @@ router.post('/signup',(req,res)=>{
                 email,
                 password:hashedpwd,
             })  
+            console.log(newUser)
             // saving user to the db
             newUser.save().then(response=>{
                 res.send({

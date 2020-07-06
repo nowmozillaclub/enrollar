@@ -44,7 +44,7 @@ const HomePage = (props) => {
             <div id="curve"></div>
 
             <div className="row why" id="whyEnrollar">
-              <div className="col s8 offset-s2" style={{"borderRadius":'24px'}}>
+              <div id="roll" className="col s10 offset-s1 l8 offset-l2" style={{"borderRadius":'24px'}}>
                 <div className="card" style={{"borderRadius":"24px"}}>
                   <div className="card-image waves-effect waves-block waves-light"
                     style={{"borderRadius":"24px 24px 0 0"}}

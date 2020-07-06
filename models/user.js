@@ -15,9 +15,10 @@ const userSchema = new mongoose.Schema({
         require:true,
 
     },
-    message:[{
-        type:String,
-    }]
+    name:{
+        type: String,
+        require: true
+    }
 
 });
 module.exports = new mongoose.model('user',userSchema);

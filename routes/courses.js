@@ -4,19 +4,12 @@ const router = express.Router();
 const getCoursera = require('./courseraCP');
 const getEdX = require('./edx');
 
-router.get('/search',(req,res)=>{
+router.post('/search',(req,res)=>{
     let query = req.body.query;
     console.log(query)
     if(query!=null){
-        // getCoursera(query).then(results=>{
-        //     console.log("got result")
-        //     res.json(results);
-        // }).catch(err=>{
-        //     res.status(505).send({error:"Our server seems too busy right now! Try refreshing it..."})
-        //     console.log("Error:",err)
-        // })
         Promise.all([ getEdX(query), getCoursera(query) ]).then(results=>{
-            let draft = [ ...results[0], ...results[1]]
+            let draft = [ ...results[1], ...results[0]]
             res.json(draft);
         }).catch(err=>{
             res.status(505).send({error:"Our server seems too busy right now! Try refreshing it..."})

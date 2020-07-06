@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, useLocation, withRouter } from "react-router-dom";
+import { Route, useLocation, withRouter } from "react-router-dom";
 import Auth from "./pages/BesideAuth";
 import Homepage from './pages/HomePage';
 import Search from './pages/searchLayout/search';

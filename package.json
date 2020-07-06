@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "materialize-css": "^1.0.0-rc.2",
     "mongodb": "^3.5.8",
     "mongoose": "^5.9.18",
     "puppeteer": "^5.0.0"
