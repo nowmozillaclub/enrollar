@@ -17,7 +17,7 @@ _So lets get started, shall we?_
 
 
 ## Credits
-This project is primarily developed by the members of [NOW Mozilla CLub](https://github.com/nowmozillaclub):
+This project is primarily developed by the members of [NOW Mozilla Club](https://github.com/nowmozillaclub):
 
 Have a look at the main contributors, in no definite order:
 1. [Aajinkya Singh](https://github.com/aajinkya1203)
